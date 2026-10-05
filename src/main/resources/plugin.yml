@@ -1,5 +1,5 @@
 name: NordPets
-version: '1.0.0'
+version: '${project.version}'
 main: com.nordfjell.nordpets.NordPetsPlugin
 api-version: '26.2'
 author: Nord Fjell

@@ -1,5 +1,8 @@
 # NordPets
 
+> Release build and installation requirements: see [BUILDING.md](BUILDING.md).
+> Older local paths below describe historical test fixtures, not the release build.
+
 Small Paper 26.2 plugin for Nord Fjell. It prevents players from damaging tameable
 animals owned by somebody else.
 
