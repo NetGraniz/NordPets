@@ -1,0 +1,21 @@
+name: NordPets
+version: '1.0.0'
+main: com.nordfjell.nordpets.NordPetsPlugin
+api-version: '26.2'
+author: Nord Fjell
+description: Prevents players from attacking tameable animals owned by somebody else.
+
+commands:
+  nordpets:
+    description: Reload NordPets configuration.
+    usage: /nordpets reload
+    permission: nordpets.admin
+
+permissions:
+  nordpets.bypass:
+    description: Allows damaging pets owned by other players.
+    default: false
+  nordpets.admin:
+    description: Allows reloading NordPets.
+    default: op
+

@@ -1,0 +1,11 @@
+# Empty means that protection is active in every world.
+enabled-worlds: []
+
+# Also prevent a player's tamed animal from damaging another player's pet.
+protect-from-player-owned-pets: true
+
+# Inform an attacking player that the pet is protected.
+notify-attacker: true
+notification-cooldown-millis: 1500
+notification: "You cannot hurt another player's pet."
+
