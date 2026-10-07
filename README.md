@@ -1,9 +1,11 @@
-# NordPets
+# NordPets 1.1.0
+
+One release JAR for Paper 26.2 and Folia 26.2: [compatibility notes](FOLIA.md).
 
 > Release build and installation requirements: see [BUILDING.md](BUILDING.md).
 > Older local paths below describe historical test fixtures, not the release build.
 
-Small Paper 26.2 plugin for Nord Fjell. It prevents players from damaging tameable
+Small Paper/Folia 26.2 plugin for Nord Fjell. It prevents players from damaging tameable
 animals owned by somebody else.
 
 Protected attack sources:

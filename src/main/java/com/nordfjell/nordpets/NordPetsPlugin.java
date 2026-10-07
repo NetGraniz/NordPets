@@ -78,7 +78,7 @@ public final class NordPetsPlugin extends JavaPlugin implements Listener {
 
         event.setCancelled(true);
         if (attacker != null && notifyAttacker) {
-            notifyAttacker(attacker);
+            attacker.getScheduler().execute(this,() -> { if (attacker.isOnline()) notifyAttacker(attacker); },null,1L);
         }
     }
 
@@ -151,8 +151,12 @@ public final class NordPetsPlugin extends JavaPlugin implements Listener {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command,
                              @NotNull String label, @NotNull String[] args) {
         if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
-            loadSettings();
-            sender.sendMessage(Component.text("NordPets configuration reloaded.", NamedTextColor.GREEN));
+            getServer().getGlobalRegionScheduler().execute(this,() -> {
+                loadSettings();
+                Component message=Component.text("NordPets configuration reloaded.", NamedTextColor.GREEN);
+                if (sender instanceof Player player) player.getScheduler().execute(this,() -> player.sendMessage(message),null,1L);
+                else sender.sendMessage(message);
+            });
         } else {
             sender.sendMessage(Component.text("Usage: /nordpets reload", NamedTextColor.RED));
         }

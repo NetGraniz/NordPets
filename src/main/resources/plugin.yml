@@ -2,6 +2,7 @@ name: NordPets
 version: '${project.version}'
 main: com.nordfjell.nordpets.NordPetsPlugin
 api-version: '26.2'
+folia-supported: true
 author: Nord Fjell
 description: Prevents players from attacking tameable animals owned by somebody else.
 
