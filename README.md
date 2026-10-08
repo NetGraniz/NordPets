@@ -1,35 +1,31 @@
 # NordPets 1.1.0
 
-One release JAR for Paper 26.2 and Folia 26.2: [compatibility notes](FOLIA.md).
+Protects tamed animals from other players on Paper 26.2 and Folia 26.2. One JAR supports both platforms on Java 25.
 
-> Release build and installation requirements: see [BUILDING.md](BUILDING.md).
-> Older local paths below describe historical test fixtures, not the release build.
+## Protection
 
-Small Paper/Folia 26.2 plugin for Nord Fjell. It prevents players from damaging tameable
-animals owned by somebody else.
+NordPets blocks damage from another player's direct or sweeping attack, arrows, tridents, potions and other projectiles. It also checks player-lit TNT, lingering potion clouds, player-attributed evoker fangs and attacks by another player's tamed animal.
 
-Protected attack sources:
+Owners can damage their own pets. Wild mobs and environmental damage—fire, lava, drowning and falls—are unchanged. Damage without a player attribution is not blocked.
 
-- direct player attacks and sweeping attacks;
-- arrows, tridents, thrown potions and other player projectiles;
-- TNT ignited by a player;
-- lingering area-effect clouds;
-- evoker fangs attributed to a player;
-- attacks by another player's tamed animal.
-
-The owner may still damage their own pet. Damage from wild mobs, the environment,
-fire, lava, drowning, falling and other unattributed sources is unchanged.
-
-NordPets has no database, metrics, update checker, network calls, PacketEvents,
-ProtocolLib, Vault or other external dependencies.
+The plugin has no external runtime plugin dependency, database, telemetry, update checker or network requests.
 
 ## Permissions
 
-- `nordpets.bypass` — damage other players' pets; disabled for everyone by default.
-- `nordpets.admin` — `/nordpets reload`; operators only by default.
+| Permission | Allows | Default |
+| --- | --- | --- |
+| `nordpets.bypass` | Damage another player's protected pet | Nobody, including operators |
+| `nordpets.admin` | `/nordpets reload` | Operators |
 
-## Build
+Grant bypass separately if a staff member needs it. The admin permission does not grant bypass.
 
-Run `build.ps1`. It compiles against the Paper API already installed in
-`Z:\Minecraft server` and creates `build\NordPets-1.0.0.jar`.
+## Configuration
+
+Edit `plugins/NordPets/config.yml`, then run `/nordpets reload`.
+
+## Build and installation
+
+Use Maven 3.9+ and JDK 25. Run `./build.ps1` or `mvn clean verify`; the release JAR is `target/NordPets-1.1.0.jar`.
+
+Stop the server before replacing the JAR. See [BUILDING.md](BUILDING.md) and [FOLIA.md](FOLIA.md). Historical server-library builds and their `build/NordPets-1.0.0.jar` output are not the current release build.
 
